@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% from 'macros/cartItemMacro.html' import render_cart_item %}
+
+{% block content %}
+  <div id="products" class="box">
+    <div class="products--header has-text-centered">
+      <i class="fa fa-2x fa-user-circle"></i>
+    </div>
+
+    {% if cart.cart_products %}
+    <div class="cart-item-list">
+
+      {% for item in cart.cart_products %}
+        {{ render_cart_item(item) }}
+      {% endfor %}
+
+    <br>
+    <p class="has-text-primary has-text-weight-bold">Total sum: <i class="fa fa-usd"></i> {{ "%.2f"|format(cart.total_price()) }} </p>
+    </div>
+      <br>
+  <span class="button is-success" onclick="resetCart()">Checkout</span>
+    {% else %}
+      <div>
+        <p>Your cart is empty:</p>
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}

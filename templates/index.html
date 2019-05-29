@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% from 'macros/productItemMacro.html' import render_product_item %}
+
+{% block content %}
+  <div id="products" class="box">
+      <span onclick="sendCart()" class="icon is-primary fa-pull-right cart-icon">
+        <i id="cart-size" class="has-text-right">0</i>
+        <i class="fa fa-cart-plus fa-3x" aria-hidden="true"></i>
+      </span>
+    <div class="products--header has-text-centered">
+      <i class="fa fa-2x fa-user-circle"></i>
+    </div>
+    <div class="product-list">
+
+      {% for item in products %}
+        {{ render_product_item(item) }}
+      {% endfor %}
+
+    </div>
+   {% if prev_url %}
+    <a href="{{ prev_url }}">Previous page</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Next page</a>
+    {% endif %}
+
+  </div>
+{% endblock %}
+

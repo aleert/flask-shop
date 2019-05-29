@@ -1,0 +1,11 @@
+{% macro render_cart_item(cartItem) %}
+  <br>
+  <div>
+    <h2 class="has-text-weight-bold">{{ cartItem.product.title }}</h2>
+    <span class="has-text-primary">
+      <p>Price: <i class="fa fa-usd"></i> {{ "%.2f"|format(cartItem.product.price) }}</p>
+      <p>Quantity: {{ cartItem.quantity }}</p>
+      <p>Total price: <i class="fa fa-usd"></i> {{ "%.2f"|format(cartItem.quantity * cartItem.product.price) }}</p>
+    </span>
+  </div>
+{% endmacro %}

@@ -1,0 +1,18 @@
+{% macro render_product_item(productItem) %}
+  <br>
+  <div>
+    <a href="{{ url_for('product_detail', product_id=productItem.id) }}">
+      <h2 class="has-text-weight-bold">{{ productItem.title }}</h2>
+    </a>
+      <span
+        onclick='{{ 'addCartItem(%s)'|format(productItem.id) }}'
+        class="tag is-primary is-pulled-right has-text-white">
+        Add to Cart
+      </span>
+    </h2>
+    <p>{{ productItem.description }}</p>
+    <span class="has-text-primary has-text-weight-bold">
+      <i class="fa fa-usd"></i> {{ "%.2f"|format(productItem.price) }}
+    </span>
+  </div>
+{% endmacro %}

@@ -1,0 +1,9 @@
+.idea/
+dist/
+build/
+__pycache__/
+*.pyc
+.env
+
+static/
+shopping_cart/
